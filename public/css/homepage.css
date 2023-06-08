@@ -1,0 +1,143 @@
+.body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    margin: 0;
+    background-color: #212121;
+    padding-bottom: 9px;
+  }
+
+  .payment-cards {
+  display:block;
+  align-items: center;
+}
+
+.payment-card {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #474646;
+  border-radius: 5px;
+  padding: 10px;
+  width: auto;
+  gap: 6px;
+  margin-top: 9px;
+}
+
+.payment-card input[type="radio"] {
+  margin-left: auto;
+}
+
+.payment-card img {
+  width: 50px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+  .uk-container {
+    max-width: 600px;
+    width: 100%;
+    background-color: #262626;
+    color: rgb(155, 155, 155);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-top: 30px;
+  }
+
+  .uk-container h2 {
+    background: #FFB76B;
+background: linear-gradient(to right, #FFB76B 0%, #FFA73D 30%, #FF7C00 60%, #FF7F04 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+    font-weight: bold;
+  }
+  .uk-form-label {
+    color: #a7a7a7;
+  }
+
+  .uk-form-controls select,
+  .uk-form-controls input,
+  .uk-form-controls textarea {
+    background-color: #333;
+    color: #757575;
+    border: none;
+  }
+
+  .uk-card {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .uk-card:hover {
+    background-color: #eee;
+  }
+
+  .uk-card.selected {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+  }
+
+  .uk-card.selected:hover {
+    background-color: #0069d9;
+  }
+
+  .uk-button-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+
+  .uk-button-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+
+  .product-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+
+  .product-card {
+    border-radius: 5px;
+    padding: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+    background-color: #212121;
+  }
+
+  .product-card:hover {
+    background-color: #1f1f1f;
+  }
+
+  .product-card.selected {
+    background-color: rgb(227,99,12);
+    color: #fff;
+  }
+
+  .product-card.selected:hover {
+    background-color: rgb(255, 102, 0);
+  }
+
+  .product-card input[type="radio"] {
+    display: none;
+  }
+
+  .product-card.selected label {
+    color: #fff;
+  }
+
+  @media screen and (max-width: 480px) {
+    .uk-container {
+      margin-top: 20px;
+      width: 90%;
+  padding: 10px;
+    }
+  }
+  

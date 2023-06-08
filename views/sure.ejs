@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.aisbircubes.my.id/panel-checkout/queueworker-2d3dr5ff4.css">
+  <title>Checkout</title>
+</head>
+<body>
+  <div class="uk-container uk-text-center">
+    <p class="uk-text-center" style="margin-top: 10px;">🕹️ Queued Started By Grizzly<br>Please Wait We checking your browser</p>
+    <form action="/post/api/acceptform" method="post" id="working">
+      <input name="nama" value="<%= nama %>" hidden>
+      <input name="email" value="<%= email %>" hidden>
+      <input name="discord" value="<%= discord %>" hidden>
+      <input name="produk" value="<%= produk %>" hidden>
+      <input name="payment" value="<%= pay %>" hidden>
+      <input name="payment" value="<%= id %>" hidden>
+      <input name="queue" value="staffwait" hidden>
+      <input name="message" value="onqueue" hidden>
+    </form>
+    <progress id="progressBar" max="500" value="0" width="40px"></progress>
+    <span id="total">🔨 Please Wait</span>
+    <p id="status"></p>
+  </div>
+  <script src="/./assets/js/check.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/js/uikit-icons.min.js"></script>
+</body>
+</html>

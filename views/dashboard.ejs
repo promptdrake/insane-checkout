@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/css/uikit.min.css" />
+  <link rel="stylesheet" href="/./assets/css/homepage.css">
+  <link rel="stylesheet" href="/./assets/css/superepicdashboard.css">
+  <title>Checkout</title>
+</head>
+<body>
+    <nav class="uk-background-secondary uk-light" uk-navbar>
+        <div class="uk-navbar-left">
+    
+            <ul class="uk-navbar-nav">
+                <li class="uk-active"><a href="#">Panel</a></li>
+                <li><a href="/./logout">Log Out</a></li>
+            </ul>
+    
+        </div>
+    </nav>
+  
+    <section id="getstarted">
+<div class="uk-container">
+  <h2 class="uk-text-center">Change Data</h2>
+  <p class="uk-text-center" style="margin-top: -19px;">Enter Your Panel Admin Details</p>
+  <form class="uk-form-stacked uk-margin-medium" action="/panel/changedata/submit" method="post">
+    <div class="uk-margin">
+      <label class="uk-form-label" for="name">Ticked ID</label>
+      <div class="uk-form-controls">
+        <input class="uk-input" type="text" name="id" id="name" placeholder="Example @A-fJien" required>
+      </div>
+    </div>
+    <div class="uk-margin">
+      <label class="uk-form-label" for="form-stacked-select">Status</label>
+      <div class="uk-form-controls">
+          <select class="uk-select" name="status" id="form-stacked-select">
+            <option selected disabled>Select Status Queue</option>
+              <option value="staffwait">On Staff</option>
+              <option value="paymentrequired">On Payment</option>
+              <option value="oncreate">On Create</option>
+              <option value="done">On Finish</option>
+              <option value="declined">On Reject</option>
+          </select>
+      </div>
+  </div>
+  <div class="uk-margin">
+    <label class="uk-form-label" for="form-stacked-select">Message - <a href="https://www.w3schools.com/html/html_elements.asp">Html Supported!</a></label>
+    <div class="uk-form-controls">
+      <textarea name="message" class="uk-textarea" rows="5" placeholder="Update Your message input to client, Html Element are supported" aria-label="Textarea"></textarea>
+      </div>
+</div>
+    <div class="uk-margin">
+      <button class="uk-button uk-button-secondary uk-width-1-1" type="submit">Change Data</button>
+    </div>
+  </form>
+</div></section>
+<br><br>
+<div class="idk">
+  <h3 style="color: white;font-weight: bold;">All Data From Checkout</h3>
+  <p style="color: white;font-weight: bold;margin-top: -20px;">Please respond quickly</p>
+  <button class="uk-button uk-button-danger" onclick="autodel()">Delete all data</button>
+  <div class="table-wrapper">
+    <table class="rwd-table" id="dataTable">
+      <thead>
+        <tr>
+          <th>Ticket ID</th>
+          <th>Name</th>
+          <th>Discord</th>
+          <th>Product</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach(item => { %>
+        <tr>
+          <td data-th="Ticket ID"><%= item.id %></td>
+          <td data-th="Name"><%= item.nama %></td>
+          <td data-th="Discord"><%= item.discord %></td>
+          <td data-th="Product"><%= item.produk %></td>
+          <td data-th="Status"><%= item.queue %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>
+<script>
+  function autodel() {
+    Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.isConfirmed) {
+   window.location.href = './delete'
+  }
+})
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/js/uikit-icons.min.js"></script>
+  <script>
+
+  </script>
+</body>
+</html>

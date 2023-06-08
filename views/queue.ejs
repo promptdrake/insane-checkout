@@ -1,0 +1,104 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link rel="stylesheet" href="/./assets/css/queue.css">
+<style>
+  .shadowbox {
+    padding-top: 10px;
+  }
+  textarea {
+    background-color: #333;
+    color: #757575;
+    border: none;
+  }
+</style>
+  <title>Checkout</title>
+</head>
+<body>
+<section class="root">
+    <figure>
+      <img src="https://cdn.discordapp.com/attachments/854643204019191849/1114188580147953756/20230521_212855_0000.jpg" alt="">
+      <figcaption>
+        <h4>Tracking Details</h4>
+        <h6>Order Number</h6>
+        <h2><%= dataid %></h2>
+      </figcaption>
+    </figure>
+
+    <section id="<%= sectionId %>">
+      <br>
+      <br>
+  <div class="order-track-step">
+    <div class="order-track-status">
+      <span class="order-track-status-dot"></span>
+      <span class="order-track-status-line"></span>
+    </div>
+    <div class="order-track-text">
+      <% if (sectionId === 'queue') { %>
+        <p class="order-track-text-stat">Waiting Staff Verification</p>
+        <span class="order-track-text-sub">Please wait until payment image showing</span>
+      <% } else if (sectionId === 'paymentship') { %>
+        <p class="order-track-text-stat">Please Complete The Payment</p>
+        <span class="order-track-text-sub">Harap Melakukan payment dengan gambar di bawah ini</span>
+        <div class="shadowbox">
+        <h1 style="font-size: 20px;"># Gopay</h1>
+        <img style="padding-top: 5px;" src="https://cdn.discordapp.com/attachments/1013292951230742648/1114197487553613844/Screenshot_2023-06-02-21-18-32-12_1c37ef63dcf02305cb94eec0e7b7412f.jpg" width="100">
+      </div>
+      <div class="shadowbox">
+        <h1 style="font-size: 20px;"># Dana</h1>
+        <img style="padding-top: 5px;" src="https://cdn.discordapp.com/attachments/1013292951230742648/1114197487339712674/Screenshot_2023-06-02-21-20-02-05_78ed797590cf9a33dfc5e341b7a9537a.jpg" width="100">
+      </div>
+      <br>
+      <button title="Spoiler" type="button" class="btn btn-success" onclick="if(document.getElementById('spoiler') .style.display=='none') {document.getElementById('spoiler') .style.display=''}else{document.getElementById('spoiler') .style.display='none'}">Spoiler</button>
+<div id="spoiler" style="display:none">
+  <form action="/./api/handler/dsc" method="post">
+    <div class="mb-3" style="padding-top: 10px;max-width: 200px;">
+      <label for="formFile" class="form-label">Dana / Gopay Name:</label>
+      <input type="text" class="form-control" placeholder="aka SushyBear" name="username" id="formFile">
+      <p>Jangan submit form jika kamu belum melakukan pembayaran</p>
+    </div>
+    <input type="password" style="display: none;" class="form-control" placeholder="aka SushyBear" name="insaneid" value="<%= dataid %>" id="formFile">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+      <br>
+      <hr>
+      <p style="margin-top: 10px;">You Need Pay for <%= produk %><br> Check The price in <a href="/">Here</a><br>Please Complete Payment Before 1 Day</p>
+      <span id="counter">30</span>s left Before checking new payment
+      <script>
+    let count = 30;
+const counterElement = document.getElementById('counter');
+
+function updateCounter() {
+  count--;
+  counterElement.textContent = count;
+
+  if (count === 0) {
+    clearInterval(counterInterval);
+    location.reload();
+  }
+}
+
+const counterInterval = setInterval(updateCounter, 1000);
+      </script>
+      <% } else if (sectionId === 'creating') { %>
+        <p class="order-track-text-stat">Order Sedang dibuat</p>
+        <span class="order-track-text-sub">Harap tunggu 1x24 jam</span>
+      <% } else if (sectionId === 'alldone') { %>
+        <p class="order-track-text-stat">Orderan Kamu sudah dikirim</p>
+        <span class="order-track-text-sub">dibawah ini adalah catatan dari seller</span><br><hr>
+         <p><%- catatan %></p>
+        
+        <% } else if (sectionId === 'deny') { %>
+          <p class="order-track-text-stat">Orderan Kamu Dibatalkan</p>
+        <span class="order-track-text-sub">Kemungkinan produk sedang tidak ready atau form yang kamu kirim mengandung spam</span>
+       <img src="https://media.tenor.com/yaqXpa8fqb8AAAAC/minecraft.gif" style="max-width: 80%;margin-top: 10px;">
+      <% } %>
+    </div>
+  </div>
+</section>
+
+    </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script></body>

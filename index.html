@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/css/uikit.min.css" />
+  <link rel="stylesheet" href="/./assets/css/homepage.css">
+  <title>Checkout</title>
+</head>
+<body class="body">
+  <div class="uk-container">
+    <h2 class="uk-text-center">Aisbir Cubes</h2>
+    <p class="uk-text-center" style="margin-top: -19px;">Found Your Favorite Product? Buy Now</p>
+    <form class="uk-form-stacked uk-margin-medium" action="/request/api/submit" method="get">
+      <div class="uk-margin">
+        <label class="uk-form-label" for="name">Name</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" type="text" name="name" id="name" placeholder="Enter your name" required>
+        </div>
+      </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="email">Email</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+      </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="name">Discord ID</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" type="text" id="discord" name="discord" placeholder="Enter your discord id" required>
+        </div>
+      </div>
+      <div class="uk-margin">
+        <label class="uk-form-label">Product Want To Buying</label>
+        <div class="uk-form-controls product-cards">
+          <div class="product-card" onclick="selectProduct(1)">
+            <input type="radio" name="product" value="minecraft redeem code" class="uk-radio" required>
+            <label>Minecraft Redeem Code</label>
+            <p style="font-size: 13px;">Rp 280.000,00</p>
+          </div>
+          <div class="product-card" onclick="selectProduct(2)">
+            <input type="radio" name="product" value="minecraft premium account" class="uk-radio">
+            <label>Minecraft Premium</label>
+            <p style="font-size: 13px;">Rp 180.000,00</p>
+          </div>
+          <div class="product-card" onclick="selectProduct(3)">
+            <input type="radio" name="product" value="Minecraft Realm Account" class="uk-radio">
+            <label>Minecraft Realm</label>
+            <p>Rp 25.000,00</p>
+          </div>
+          <div class="product-card">
+            <input type="radio" name="product" value="Virtual Private Server" class="uk-radio">
+            <label>Vps</label>
+            <p style="font-size: 13px;">Coming Soon</p>
+          </div>
+          <div class="product-card" onclick="selectProduct(5)">
+            <input type="radio" name="product" value="Timpa Skin" class="uk-radio">
+            <label>Timpa Skin</label>
+            <p style="font-size: 13px;">Rp 10.000,00</p>
+          </div>
+          <div class="product-card" onclick="selectProduct(6)">
+            <input type="radio" name="product" value="Vypr Vpn" class="uk-radio">
+            <label>Vypr VPN</label>
+            <p style="font-size: 13px;">Rp 20.000,00</p>
+          </div>
+          <div class="product-card" onclick="selectProduct(7)">
+            <input type="radio" name="product" value="Nord Vpn" class="uk-radio">
+            <label>Nord VPN</label>
+            <p style="font-size: 13px;">Rp 20.000,00</p>
+          </div>
+          <div class="product-card" onclick="selectProduct(8)">
+            <input type="radio" name="product" value="Youtube Premium 6 Month" class="uk-radio">
+            <label>Youtube Prem 6 Month</label>
+            <p style="font-size: 13px;">Rp 15.000,00</p>
+          </div>
+          <div class="product-card" onclick="selectProduct(9)">
+            <input type="radio" name="product" value="Setup Pterodactyl" class="uk-radio">
+            <label>Setup Pterodactyl Panel</label>
+            <p style="font-size: 13px;">Rp 10.000,00</p>
+          </div>
+          <div class="product-card" onclick="selectProduct(10)">
+            <input type="radio" name="product" value="Domain .me" class="uk-radio">
+            <label>Domain .me</label>
+            <p style="font-size: 13px;">Rp 20.000,00</p>
+          </div>
+          <div class="product-card" onclick="selectProduct(11)">
+            <input type="radio" name="product" value="Domain .tech" class="uk-radio">
+            <label>Domain .tech</label>
+            <p style="font-size: 13px;">Rp 15.000,00</p>
+          </div>
+          <div class="product-card" onclick="selectProduct(12)">
+            <input type="radio" name="product" value="Youtube Premium 6 Bulan" class="uk-radio">
+            <label>Youtube Premium 6 Bulan</label>
+            <p style="font-size: 13px;">Rp 15.000,00</p>
+          </div>
+          <div class="product-card" onclick="selectProduct(13)">
+            <input type="radio" name="product" value="Youtube Premium 1 bulan" class="uk-radio">
+            <label>Youtube Premium 1 Bulan</label>
+            <p style="font-size: 13px;">Rp 10.000,00</p>
+          </div>
+          <div class="product-card" onclick="selectProduct(14)">
+            <input type="radio" name="product" value="Spotify Premium 3 bulan" class="uk-radio">
+            <label>Spotify Premium 2 Bulan</label>
+            <p style="font-size: 13px;">Rp 20.000,00</p>
+          </div>
+        </div>
+      </div>
+      <div class="uk-margin">
+        <label class="uk-form-label" for="payment">Payment Method</label>
+        <div class="uk-form-controls">
+          <div class="payment-cards">
+            <label class="payment-card">
+              <img src="https://cdn.aisbircubes.my.id/panel-checkout/qris.png" alt="qris">Qris
+              <input type="radio" id="payment-gopay" name="payment" value="gopay">
+            </label>
+            <label class="payment-card">
+              <img src="https://cdn.aisbircubes.my.id/panel-checkout/logo_bca.png" alt="bca"> Bca Virtual Transfer
+              <input type="radio" id="payment-bca" name="payment" value="bca">
+            </label>
+            <label class="payment-card">
+              <img src="https://cdn.aisbircubes.my.id/panel-checkout/logo_bri.png" alt="bri"> Bri Virtual Transfer
+              <input type="radio" id="payment-bri" name="payment" value="bri">
+            </label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="uk-margin">
+        <label class="uk-form-label" for="name">Session ID</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" type="text" id="sessionid" name="id" required readonly>
+        </div>
+      </div>
+      <div class="uk-margin">
+        <button class="uk-button uk-button-primary uk-width-1-1" type="submit">Place Order</button>
+      </div>
+    </form>
+  </div>
+<script src="/./assets/js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.7.4/js/uikit-icons.min.js"></script>
+  <script>
+
+  </script>
+</body>
+</html>
